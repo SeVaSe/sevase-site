@@ -1,7 +1,7 @@
+/* Стили для header по умолчанию (без прокрутки) */
 .header {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    background: linear-gradient(-135deg,rgba(0, 20, 65, 0.8) 25%,rgba(34, 0, 78, 0.8) 100%);
     position: fixed;
     top: 0;
     left: 0;
@@ -9,6 +9,15 @@
     height: auto;
     z-index: 1;
     border-bottom: 1px solid rgb(55, 48, 73);
+    background: linear-gradient(-135deg, rgba(0, 20, 65, 0.685) 25%, rgba(45, 3, 99, 0.8) 100%);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    transition: background-color 0.3s; /* Добавляем анимацию смены цвета фона */
+}
+
+/* Стили для header при прокрутке вниз */
+body.scrolled .header {
+    background: rgba(16,24,56,.8)!important;
 }
 
 .header-item {
@@ -39,7 +48,6 @@
     width: 100%; /* Увеличиваем ширину псевдоэлемента при наведении */
     opacity: 1; /* Показываем псевдоэлемент при наведении */
 }
-
 
 .headerLogo {
     padding: 1em;
@@ -146,23 +154,60 @@
     position: absolute;
     width: 200%;
     height: 100%;
-    background: linear-gradient(-45deg, #09001f, #040025, #0c0036, #000225, #0e001f);
+    background: linear-gradient(229deg, rgb(0, 6, 27) 35%, rgb(0, 0, 34) 45%,  rgba(28, 1, 92, 0.88) 100%) !important;
     background-size: 400% 400%;
-    animation: moveBackground 20s linear infinite alternate;
-    animation-timing-function: ease-in-out;
+    /* animation: moveBackground 20s linear infinite alternate;
+    animation-timing-function: ease-in-out; */
 }
 
-@keyframes moveBackground {
+/* @keyframes moveBackground {
     0% {
         background-position: 0 0;
     }
     100% {
         background-position: 100% 0;
     }
-}
+} */
 
   
-  
+/* Стили для стрелочки */
+.arrow-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity 0.3s; /* Добавляем анимацию исчезания/появления */
+    animation: arrowMove 2s infinite alternate; /* Анимация движения вверх и вниз */
+}
+
+.arrow {
+    width: 40px;
+    height: 5px;
+    background-color: rgb(235, 236, 241);
+    border-radius: 50px;
+}
+
+/* Стиль для скрытия стрелочки */
+.arrow-container.hidden {
+    opacity: 0;
+}
+
+/* Анимация движения стрелочки */
+@keyframes arrowMove {
+    0% {
+        transform: translateY(0); /* Изначальное положение стрелочки */
+    }
+    50% {
+        transform: translateY(-10px); /* Поднять стрелочку вверх */
+    }
+    100% {
+        transform: translateY(0); /* Вернуть стрелочку обратно в исходное положение */
+    }
+}
+
+
+
+
  
   
   

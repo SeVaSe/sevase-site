@@ -22,6 +22,20 @@
         <div class="header-item item3">Мои проекты</div>
         <div class="header-item item4">Связь со мной</div>
     </header>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            var header = document.querySelector('.header');
+            if (window.scrollY > 0) {
+                document.body.classList.add('scrolled');
+            } else {
+                document.body.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+
+
     <div class="background">
         
         <div class="content">
@@ -37,14 +51,43 @@
                 Программированием увлекся в 15лет, тогда уже начал изучать первый язык и делать первые проекты. После поступил в КИПФИН</p>
             </div>
 
-            
-            
-            
-            
-            
         </div>
+
+        <div class="arrow-container">
+            <div class="arrow"></div>
+        </div>
+
+        <script>
+            // Переменная для отслеживания положения скролла
+            var lastScrollPosition = 0;
+        
+            window.addEventListener('scroll', function() {
+                var header = document.querySelector('.header');
+                var arrow = document.querySelector('.arrow-container');
+        
+                // Проверяем, прокрутили ли вниз
+                if (window.scrollY > lastScrollPosition) {
+                    header.classList.add('scrolled');
+                    arrow.classList.add('hidden');
+                } else {
+                    header.classList.remove('scrolled');
+                    arrow.classList.remove('hidden');
+                }
+        
+                // Обновляем lastScrollPosition
+                lastScrollPosition = window.scrollY;
+            });
+        </script>
+        
+        
+      
+        
         
     </div>
+
+
+    
+    
 
 
 
