@@ -1,18 +1,170 @@
-.wrapperH {
+.header {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr 1fr;
-    grid-auto-rows: minmax(100px, auto);
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    background: linear-gradient(-135deg,rgba(0, 20, 65, 0.8) 25%,rgba(34, 0, 78, 0.8) 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+    border-bottom: 1px solid rgb(55, 48, 73);
+}
+
+.header-item {
+    padding: 1em;
+    text-align: center;
+    font-size: 25px;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer; /* Изменяем курсор на "hand" при наведении */
+    position: relative; /* Добавляем позицию "relative" для области подчеркивания */
+}
+
+.header-item::before {
+    content: ""; /* Создаем псевдоэлемент для области подчеркивания */
+    position: absolute;
+    bottom: 0;
+    left: 50%; /* Располагаем псевдоэлемент в середине элемента */
+    transform: translateX(-50%); /* Сдвигаем его влево на половину ширины элемента */
+    width: 0;
+    height: 2px; /* Толщина подчеркивания */
+    background-color: white; /* Цвет подчеркивания */
+    transition: width 0.3s; /* Добавляем анимацию увеличения ширины */
+    opacity: 0; /* Начальная невидимость псевдоэлемента */
+}
+
+.header-item:hover::before {
+    width: 100%; /* Увеличиваем ширину псевдоэлемента при наведении */
+    opacity: 1; /* Показываем псевдоэлемент при наведении */
+}
+
+
+.headerLogo {
+    padding: 1em;
+    margin-left: 15%;
+    align-items: center;
+    justify-content: center; 
+    cursor: pointer; /* Изменяем курсор на "hand" при наведении */
+}
+
+.headerLogo::before {
+    content: ""; /* Создаем псевдоэлемент для области подчеркивания */
+    position: absolute;
+    bottom: 0;
+    left: 50%; /* Располагаем псевдоэлемент в середине элемента */
+    transform: translateX(-50%); /* Сдвигаем его влево на половину ширины элемента */
+    width: 0;
+    height: 2px; /* Толщина подчеркивания */
+    background-color: white; /* Цвет подчеркивания */
+    transition: width 0.3s; /* Добавляем анимацию увеличения ширины */
+    opacity: 0; /* Начальная невидимость псевдоэлемента */
+}
+
+.headerLogo:hover::before {
+    width: 100%; /* Увеличиваем ширину псевдоэлемента при наведении */
+    opacity: 1; /* Показываем псевдоэлемент при наведении */
+}
+
+
+/* Стили для контента, учитывая фиксированную шапку */
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     grid-gap: 1em;
-    background-color: #fff;
+    padding: 1em;
+    
+    
 }
 
-div {
-    background-color: #a742f5;
+/* Стили для контента, его элементов на стартовой странице */
+@keyframes glow {
+    0% {
+      text-shadow: 0 0 20px white; /* Светлый эффект */
+    }
+    50% {
+      text-shadow: none; /* Отключаем свет */
+    }
+    100% {
+      text-shadow: 0 0 20px white; /* Светлый эффект */
+    }
+  }
+  
+  .box1 {
+    margin-top: 30%;
+    padding-left: 1em;
+    padding-top: 1em;
+    padding-right: 1em;
+    text-align: left;
+    /* border: 1px solid #000; */
+    z-index: 2;
+    font-size: 20px;
+    animation: glow 10s infinite;
+    color: white;
+  }
+
+  .box3 {
+    padding-left: 1em;
+    text-align: left;
+    /* border: 1px solid #000; */
+    z-index: 2;
+    font-size: 17px;
+    color: white;
+  }
+
+  
+
+.box2 {
+    margin-top: 30%;
     padding: 1em;
+    display: inline-block;
+    border-radius: 200%;
+    overflow: hidden;
+    z-index: 2;
 }
 
-.item {
-    background-color: #4287f5;
-    padding: 1em;
+.box2 img {
+    width:100%;
+    height:100%;
+    object-fit: cover;
 }
+
+
+
+
+.background {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.background::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(-45deg, #09001f, #040025, #0c0036, #000225, #0e001f);
+    background-size: 400% 400%;
+    animation: moveBackground 20s linear infinite alternate;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+  
+  
+ 
+  
+  
+
 
